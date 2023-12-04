@@ -1,0 +1,91 @@
+/* Your styles for the settings page */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+:root{
+    --color-dark: hsl(252, 53%, 15%);
+    --color-white: hsl(300, 17%, 94%);
+    --color-light: hsl(291, 22%, 82%);
+    --color-gray: hsl(253, 6%, 28%);
+    --color-primary: hsl(278, 61%, 31%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger: hsl(0, 95%, 65%);
+    --color-black: hsl(252, 30%, 10%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: 18rem;
+}
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark); 
+    background: var(--color-light);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+section {
+    margin-bottom: 30px;
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+input[type="password"] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 1.1rem;
+}
+
+.btn:hover{
+    opacity: 0.9;
+}
+.btn-primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

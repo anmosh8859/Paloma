@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+:root{
+    --color-dark: hsl(252, 53%, 15%);
+    --color-white: hsl(300, 17%, 94%);
+    --color-light: hsl(291, 22%, 82%);
+    --color-gray: hsl(253, 6%, 28%);
+    --color-primary: hsl(278, 61%, 31%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger: hsl(0, 95%, 65%);
+    --color-black: hsl(252, 30%, 10%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: 18rem;
+}
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark); 
+    background: var(--color-light);
+    overflow-x: hidden;
+}
+
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.profile-photo{
+    width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+img{
+   display: block;
+   width: 100%; 
+}
+
+
+.btn{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+.btn-primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+.text-bold{
+    font-weight: 500;
+}
+
+.text-muted{
+    color: var(--color-gray);
+}
+
+
+
+
+
+/* navbar */
+
+nav{
+     width: 100%;
+     background: var(--color-white);
+     padding: 0.7rem 0;
+     position: fixed;
+     top: 0;
+     z-index: 10;
+}
+
+nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .container .logo{
+    display: flex;
+}
+nav .container .logo h1{
+    font-size: 2rem;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+nav .container .logo img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+nav .search-bar{
+    background: var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--search-padding);
+}
+
+nav .search-bar input[type="search"]{
+    background: transparent;
+    width: 30vw;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+nav .search-bar input[type="search"]::placeholder{
+    color: var(--color-gray);
+}
+
+nav .create{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* MAIN  */
+
+main{
+    position: relative;
+    top: 5.4rem;
+}
+
+main .container{
+    display: grid;
+    grid-template-columns: 20vw auto 20vw;
+    column-gap: 2rem;
+    position: relative;
+}
+
+
+
+/* left  */
+
+main .container .left{
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-left);
+}
+
+/* sidebar  */
+
+.left .sidebar{
+    margin-top: 1rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+}
+
+.left .sidebar .menu-item{
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    position: relative;
+}
+.left .sidebar .menu-item:hover{
+    background: var(--color-light);
+}
+
+.left .sidebar i{
+    font-size: 1.4rem;
+    color: var(--color-gray);
+    margin-left: 2rem;
+    position: relative;
+}
+
+.left .sidebar h3{
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+
+.left .sidebar .active{
+    background: var(--color-light);
+}
+.left .sidebar .sidebar i, .left .sidebar .active h3{
+    color: var(--color-primary);
+}
+
+.left .sidebar .active::before{
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    position: absolute;
+    background: var(--color-primary);
+}
+
+.left .sidebar .active .menu-item:first-child.active{
+    border-top-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+.left .sidebar .active .menu-item:last-child.active{
+    border-bottom-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.left .btn{
+    margin-top: 1rem;
+    margin-left: 5.5rem;
+    width: 55%;
+     text-align: center;
+     padding: 1rem 0;
+}
+
+
+/* post-block */
+.left .post-creation {
+  height: 300px;
+  margin-top: 2rem;
+  padding: 8px;
+  background: var(--color-white);
+  border-radius: var(--card-border-radius);
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Align items vertically */
+}
+
+.post-creation {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-creation h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .post-input {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .user-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .post-content {
+    flex: 1;
+
+  }
+  
+  #post-caption {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  .image-upload{
+    margin-left: 45px;
+  }
+  .image-upload input[type="file"] {
+    display: none;
+  }
+  
+  .image-upload label {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .image-upload label:hover {
+    background-color: #f9f9f9;
+  }
+  
+
+
+/* Middle  */
+
+.middle .feeds .feed{
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+ 
+.middle .feeds .feed .head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle .feeds .feed .user{
+    display: flex;
+    gap: 1rem;
+}
+
+.middle .feeds .feed .photo{
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    margin: 0.7rem 0;
+}
+
+.middle .feeds .feed .action-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.6rem;
+}
+
+.like-icon.liked {
+    color: red; /* Change to red when liked */
+}
+
+.comment-box {
+    display: none; /* Initially hide the comment box */
+    margin-top: 10px; /* Adjust this as needed */
+}
+
+.comment-box.show-comment-box {
+    display: block; /* Show the comment box when the icon is clicked */
+    /* Add other styles to position and style your comment box */
+}
+
+.post-comment-btn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Add a hover effect by changing the background color slightly on hover */
+.post-comment-btn:hover {
+    background-color: darken(var(--color-primary), 10%);
+    /* Adjust the percentage to change the hover effect intensity */
+}
+
+
+/* right-block */
+.right{
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-left);
+}
+
+.right .user-profile {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    height: 50%;
+    text-align: center;
+  }
+
+  .right .profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add this line to horizontally center the profile pic */
+    flex-direction: column; /* Add this line to align items vertically */
+  }
+  
+  .right .profile-pic img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  
+  .right .user-stats {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .right .user-follow-button {
+    padding: 5px 10px;
+    margin: 0 10px;
+  }
+  
+  .right .user-description {
+    font-style: italic;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+
+
+/* for responsiveness  */
+
+@media screen and (max-width: 1200px){
+    .container{
+        width: 96%;
+    }
+
+    main .container{
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+
+    .left{
+        width: 5rem;
+        z-index: none;
+    }
+
+    .sidebar h3{
+        display: none;
+    }
+
+    .left .btn{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 992px) {
+    main .container{
+        grid-template-columns: 0 auto 5rem;
+        gap: 0;
+    }
+
+    main .container .left{
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+     main .container .left .sidebar > div h3{
+        display: none;
+     }
+
+     main .container .middle{
+        grid-column: 1/3;
+     }
+    
+     main .container .right{
+        display: none;
+     }
+}
