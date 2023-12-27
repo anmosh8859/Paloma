@@ -20,9 +20,9 @@ import java.util.List;
 
 @Controller
 @SessionAttributes("id")
-public class FeedController {
+public class TimelineController {
 
-    public FeedController(UserServices userServices, PostServices postServices, LoginRepository loginRepository, UserRepository userRepository) {
+    public TimelineController(UserServices userServices, PostServices postServices, LoginRepository loginRepository, UserRepository userRepository) {
         this.userServices = userServices;
         this.postServices = postServices;
         this.loginRepository = loginRepository;
@@ -33,21 +33,16 @@ public class FeedController {
     PostServices postServices;
     LoginRepository loginRepository;
     UserRepository userRepository;
-    @RequestMapping("/")
+    @RequestMapping("/timeline")
     public String showMainPage(ModelMap map){
         if(map.get("id")==null) return "redirect:login";
         LoginCredentials loginCredentials = loginRepository.findById((String) map.get("id")).orElse(null);
+
         User user = userRepository.findById((String) map.get("id")).orElse(null);
-        List<Post> posts = postServices.getAllPosts();
-        List<User> users = userServices.getAllUsers();
+        List<Post> posts = postServices.showAllPostsOfId((String) map.get("id"));
         map.addAttribute("posts",posts);
-        map.addAttribute("users",users);
         System.out.println();
         System.out.println(posts);
-        System.out.println();
-
-        System.out.println();
-        System.out.println(users);
         System.out.println();
 
         map.put("user",user);
@@ -56,7 +51,7 @@ public class FeedController {
                 System.out.println();
                 System.out.println("I am the main page");
                 System.out.println();
-                return "index2";
+                return "timeline";
             }
         }
         System.out.println();
@@ -65,9 +60,9 @@ public class FeedController {
         return "redirect:login";
     }
 
-    @RequestMapping(value = "create-post", method = RequestMethod.POST)
-    public String createPost(ModelMap map, @RequestParam("postdata") String postdata, @RequestParam("image") MultipartFile file) throws IOException {
-        postServices.createPost(file,postdata, (String) map.get("id"));
-        return "redirect:";
-    }
+//    @RequestMapping(value = "create-post", method = RequestMethod.POST)
+//    public String createPost(ModelMap map, @RequestParam("postdata") String postdata, @RequestParam("image") MultipartFile file) throws IOException {
+//        postServices.createPost(file,postdata, (String) map.get("id"));
+//        return "redirect:timeline";
+//    }
 }

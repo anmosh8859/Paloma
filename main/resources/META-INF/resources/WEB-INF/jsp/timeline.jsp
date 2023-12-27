@@ -87,17 +87,16 @@
     <div class="middle">
         <div class="feeds">
             <c:forEach items="${posts}" var="post">
-                <c:set var="currentUser" value="${users.stream().filter(user -> user.email == post.userid).findFirst().orElse(null)}" />
                     <!-- Rest of your existing code --
                 <!-- feeds  -->
                 <div class="feed">
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="${currentUser.profilepicture}">
+                                <img src="${user.profilepicture}">
                             </div>
                             <div class="ingo">
-                                <h3>${currentUser.name}</h3>
+                                <h3>${user.name}</h3>
                                 <small>${post.timestamp}</small>
                             </div>
                         </div>
@@ -124,7 +123,7 @@
                             <p>Liked by <b>Vastvikta</b> and <b>123 others</b></p>
                         </div>
                         <div class="caption">
-                            <p><b>${currentUser.name}</b> ${post.post}</p>
+                            <p><b>${user.name}</b> ${post.post}</p>
                         </div>
                         <div class="text-muted comment">View all 18 comments</div>
                 </div>

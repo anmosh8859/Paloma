@@ -25,8 +25,11 @@ public class PostServices {
         System.out.println("\n"+post+"\n");
     }
 
-    public List<Post> showAllPosts(String userid){
+    public List<Post> showAllPostsOfId(String userid){
         return repository.findByUserid(userid);
+    }
+    public List<Post> getAllPosts(){
+        return repository.findAll();
     }
 
 //    public void retievePost(String postid){
